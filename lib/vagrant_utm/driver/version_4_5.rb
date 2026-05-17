@@ -277,7 +277,7 @@ module VagrantPlugins
         def execute_osa_script(command)
           script_path = @script_path.join(command[0])
           cmd = ["osascript", script_path.to_s] + command[1..]
-          execute_shell(*cmd)
+          execute_shell(*cmd, retryable: true)
         end
 
         # Execute the 'list' command and returns the list of machines.
